@@ -4,15 +4,14 @@
       <!-- Logo DMW -->
       <NuxtLink to="/dmwflow" class="flex items-center gap-3 group">
         <div class="flex flex-col items-center">
-          <span class="text-white font-black text-2xl tracking-widest leading-none mb-[2px] group-hover:text-[#3683A8] transition-colors">DMW</span>
-          <div class="grid grid-cols-2 w-8 h-8 gap-0">
+          <span class="text-white font-black text-xl tracking-widest leading-none mb-[2px] group-hover:text-[#3683A8] transition-colors">DMW</span>
+          <div class="grid grid-cols-2 w-10 h-10 gap-0">
             <div class="bg-[#3683A8] transition-all group-hover:scale-95"></div>
             <div class="bg-white transition-all group-hover:scale-95"></div>
             <div class="bg-white transition-all group-hover:scale-95"></div>
             <div class="bg-[#3683A8] transition-all group-hover:scale-95"></div>
           </div>
         </div>
-        <span class="text-white font-bold text-xl tracking-widest">FLOW</span>
       </NuxtLink>
 
       <!-- Nav Desktop -->

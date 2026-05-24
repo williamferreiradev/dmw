@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen bg-[#030303] text-slate-300 font-sans selection:bg-[#3683A8]/30">
     <Head>
-      <Title>DMWFLOW — Agência de Inteligência Artificial</Title>
+      <Title>DMW — Agência de Inteligência Artificial</Title>
       <Meta name="description" content="Impulsionando o Futuro com Inteligência Artificial. Soluções premium e automatizações." />
       <Link rel="preconnect" href="https://fonts.googleapis.com" />
       <Link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
@@ -42,7 +42,7 @@
                 <svg class="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
               </a>
               <a href="#o-que-fazemos" class="w-full sm:w-auto inline-flex justify-center items-center gap-2 bg-transparent border border-white/20 text-white font-bold px-10 py-4 hover:bg-white/5 transition-all duration-300 uppercase tracking-widest text-sm">
-                Conheça a DMWFLOW
+                Conheça a DMW
               </a>
             </div>
           </div>
@@ -56,7 +56,7 @@
             <div class="relative group">
               <div class="absolute -inset-1 bg-gradient-to-r from-[#3683A8] to-indigo-600 rounded-lg blur opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
               <div class="relative bg-black border border-white/10 aspect-square flex items-center justify-center overflow-hidden">
-                <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-40 mix-blend-luminosity hover:opacity-60 transition-opacity duration-700"></div>
+                <div class="absolute inset-0 bg-[url('/bg-ia.png')] bg-cover bg-center opacity-40 mix-blend-luminosity hover:opacity-60 transition-opacity duration-700"></div>
                 <div class="relative z-10 flex flex-col items-center">
                   <span class="text-white font-black text-6xl tracking-widest leading-none mb-[4px]">DMW</span>
                   <div class="grid grid-cols-2 w-20 h-20 gap-0">
@@ -71,10 +71,10 @@
             
             <div>
               <h2 style="font-family: 'Plus Jakarta Sans', sans-serif;" class="text-3xl md:text-5xl font-extrabold text-white mb-6 tracking-tight">
-                Arquitetos do <span class="text-[#3683A8]">Amanhã</span>.
+                Arquitetura de <span class="text-[#3683A8]">Soluções</span>.
               </h2>
               <p class="text-slate-400 text-lg leading-relaxed mb-6 font-light">
-                A DMWFLOW não é uma agência convencional. Nós nascemos na intersecção entre a ciência de dados avançada e a estratégia de negócios agressiva. Nosso propósito é instalar um "cérebro digital" nas operações dos nossos clientes.
+                A DMW não é uma agência convencional. Nós nascemos na intersecção entre a ciência de dados avançada e a estratégia de negócios agressiva. Nosso propósito é instalar um "cérebro digital" nas operações dos nossos clientes.
               </p>
               <p class="text-slate-400 text-lg leading-relaxed mb-10 font-light">
                 Combinamos Large Language Models (LLMs), automação robótica de processos e visão computacional para criar ecossistemas empresariais que funcionam de forma autônoma, inteligente e implacável.
@@ -100,7 +100,7 @@
         <div class="max-w-7xl mx-auto px-6">
           <div class="text-center max-w-3xl mx-auto mb-20">
             <h2 style="font-family: 'Plus Jakarta Sans', sans-serif;" class="text-3xl md:text-5xl font-extrabold text-white mb-6 tracking-tight">
-              Ecossistema de <span class="text-[#3683A8]">Soluções</span>
+              Arquitetura de <span class="text-[#3683A8]">Soluções</span>
             </h2>
             <p class="text-slate-400 text-lg font-light">
               Implementamos inteligência de ponta a ponta na sua empresa.
@@ -162,7 +162,7 @@
         <div class="max-w-7xl mx-auto px-6">
           <div class="text-center max-w-3xl mx-auto mb-20">
             <h2 style="font-family: 'Plus Jakarta Sans', sans-serif;" class="text-3xl md:text-5xl font-extrabold text-white mb-6 tracking-tight">
-              A Voz dos <span class="text-[#3683A8]">Líderes</span>
+              Depoimentos de <span class="text-[#3683A8]">Sucesso</span>
             </h2>
           </div>
 
@@ -200,23 +200,30 @@
               Deixe seus concorrentes no passado. Fale com nossos arquitetos de IA e descubra o potencial oculto da sua operação.
             </p>
             
-            <form class="space-y-6 max-w-2xl mx-auto">
+            <form @submit.prevent="enviarContato" class="space-y-6 max-w-2xl mx-auto">
+              <div v-if="enviadoComSucesso" class="bg-[#3683A8]/10 border border-[#3683A8] text-[#3683A8] px-4 py-4 rounded-none font-bold text-center tracking-widest text-sm uppercase">
+                E-MAIL ENVIADO COM SUCESSO
+              </div>
+              <div v-if="erro" class="bg-red-500/10 border border-red-500 text-red-500 px-4 py-4 rounded-none font-bold text-center tracking-widest text-sm">
+                {{ erro }}
+              </div>
+              
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Nome</label>
-                  <input type="text" class="w-full bg-black/50 border border-white/10 text-white px-4 py-3 focus:outline-none focus:border-[#3683A8] transition-colors" placeholder="Seu nome ou empresa" />
+                  <input v-model="formDados.nome" type="text" required class="w-full bg-black/50 border border-white/10 text-white px-4 py-3 focus:outline-none focus:border-[#3683A8] transition-colors" placeholder="Seu nome ou empresa" />
                 </div>
                 <div>
                   <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">E-mail Corporativo</label>
-                  <input type="email" class="w-full bg-black/50 border border-white/10 text-white px-4 py-3 focus:outline-none focus:border-[#3683A8] transition-colors" placeholder="email@suaempresa.com" />
+                  <input v-model="formDados.email" type="email" required class="w-full bg-black/50 border border-white/10 text-white px-4 py-3 focus:outline-none focus:border-[#3683A8] transition-colors" placeholder="email@suaempresa.com" />
                 </div>
               </div>
               <div>
                 <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Seu Desafio</label>
-                <textarea rows="4" class="w-full bg-black/50 border border-white/10 text-white px-4 py-3 focus:outline-none focus:border-[#3683A8] transition-colors resize-none" placeholder="Conte-nos onde você precisa de mais inteligência e eficiência..."></textarea>
+                <textarea v-model="formDados.desafio" required rows="4" class="w-full bg-black/50 border border-white/10 text-white px-4 py-3 focus:outline-none focus:border-[#3683A8] transition-colors resize-none" placeholder="Conte-nos onde você precisa de mais inteligência e eficiência..."></textarea>
               </div>
-              <button type="button" class="w-full bg-white text-black font-bold px-8 py-4 hover:bg-slate-200 transition-all duration-300 uppercase tracking-widest text-sm">
-                Solicitar Consultoria
+              <button type="submit" :disabled="enviando" class="w-full bg-white text-black font-bold px-8 py-4 hover:bg-slate-200 transition-all duration-300 uppercase tracking-widest text-sm disabled:opacity-50 disabled:cursor-not-allowed">
+                {{ enviando ? 'Enviando...' : 'Solicitar Reunião' }}
               </button>
             </form>
           </div>
@@ -229,6 +236,38 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
+
+const formDados = ref({
+  nome: '',
+  email: '',
+  desafio: ''
+})
+
+const enviando = ref(false)
+const enviadoComSucesso = ref(false)
+const erro = ref('')
+
+const enviarContato = async () => {
+  enviando.value = true
+  erro.value = ''
+  enviadoComSucesso.value = false
+
+  try {
+    const response = await $fetch('/api/contact', {
+      method: 'POST',
+      body: formDados.value
+    })
+    
+    enviadoComSucesso.value = true
+    formDados.value = { nome: '', email: '', desafio: '' }
+  } catch (e: any) {
+    erro.value = 'Ocorreu um erro ao enviar a mensagem. Tente novamente mais tarde ou configure as variáveis SMTP no .env.'
+  } finally {
+    enviando.value = false
+  }
+}
+
 const servicos = [
   { icon: '<svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25zm.75-12h9v9h-9v-9z"/></svg>', title: 'Agentes Autônomos (LLMs)', desc: 'Treinamos e integramos Large Language Models customizados com o contexto da sua empresa para atuar em suporte, vendas e backoffice sem intervenção humana.' },
   { icon: '<svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 013.75 9.375v-4.5zM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 01-1.125-1.125v-4.5zM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0113.5 9.375v-4.5zM13.5 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 01-1.125-1.125v-4.5z"/></svg>', title: 'Workflows Inteligentes', desc: 'Mapeamos gargalos operacionais e criamos fluxos de automação hiper-eficientes ligando seus CRMs, ERPs e APIs com motores de decisão inteligentes.' },
@@ -237,14 +276,14 @@ const servicos = [
 ]
 
 const cases = [
-  { tag: 'Varejo & E-commerce', title: 'Agente de Vendas Cognitivo', desc: 'Implementação de um LLM treinado no catálogo que aumentou a conversão em 45% com atendimento 24 horas humanizado.', img: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000&auto=format&fit=crop' },
-  { tag: 'Logística', title: 'Roteamento Neural', desc: 'Redução de 30% nos custos de frota usando algoritmos de predição de tráfego e análise climática em tempo real.', img: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1000&auto=format&fit=crop' },
-  { tag: 'Mercado Financeiro', title: 'Análise de Risco em Milissegundos', desc: 'Robô de extração de dados (OCR + NLP) analisando balanços e prevendo riscos de crédito, eliminando processos manuais.', img: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=1000&auto=format&fit=crop' }
+  { tag: 'Mercado Imobiliário', title: 'Agendamento para Imobiliária', desc: 'Assistente virtual capaz de interagir com interessados, qualificar o lead e realizar agendamentos de visitas aos imóveis de forma 100% autônoma e humanizada.', img: '/portfolio-1.png' },
+  { tag: 'Setor Automotivo', title: 'Qualificação para Autocenter', desc: 'Agente inteligente treinado para compreender o problema do veículo do cliente, qualificar a necessidade e encaminhar para a equipe técnica correta em segundos.', img: '/portfolio-2.png' },
+  { tag: 'Automação Corporativa', title: 'Agendamento Integrado ao CRM', desc: 'Solução completa conectada ao seu CRM: a IA dialoga, qualifica o lead, cria oportunidades no funil de vendas e marca a reunião automaticamente na sua agenda.', img: '/portfolio-3.png' }
 ]
 
 const depoimentos = [
-  { nome: 'Ricardo V.', cargo: 'CEO, TechSolutions', texto: 'A DMWFLOW não apenas instalou uma IA, eles reestruturaram a forma como pensamos nosso negócio. Hoje faturamos o dobro com a mesma equipe, pois o trabalho repetitivo foi 100% automatizado.' },
-  { nome: 'Ana C.', cargo: 'Diretora de Operações', texto: 'O nível de sofisticação dos agentes criados pela DMWFLOW é absurdo. Nossos clientes não percebem que estão falando com uma máquina, e a velocidade de resolução dos tickets caiu de 12h para 3 minutos.' }
+  { nome: 'Ricardo V.', cargo: 'CEO, TechSolutions', texto: 'A DMW não apenas instalou uma IA, eles reestruturaram a forma como pensamos nosso negócio. Hoje faturamos o dobro com a mesma equipe, pois o trabalho repetitivo foi 100% automatizado.' },
+  { nome: 'Ana C.', cargo: 'Diretora de Operações', texto: 'O nível de sofisticação dos agentes criados pela DMW é absurdo. Nossos clientes não percebem que estão falando com uma máquina, e a velocidade de resolução dos tickets caiu de 12h para 3 minutos.' }
 ]
 </script>
 

@@ -6,15 +6,14 @@
       <div class="col-span-1 md:col-span-1">
         <div class="flex items-center gap-3 mb-6">
           <div class="flex flex-col items-center">
-            <span class="text-white font-black text-2xl tracking-widest leading-none mb-[2px]">DMW</span>
-            <div class="grid grid-cols-2 w-8 h-8 gap-0">
+            <span class="text-white font-black text-xl tracking-widest leading-none mb-[2px]">DMW</span>
+            <div class="grid grid-cols-2 w-10 h-10 gap-0">
               <div class="bg-[#3683A8]"></div>
               <div class="bg-white"></div>
               <div class="bg-white"></div>
               <div class="bg-[#3683A8]"></div>
             </div>
           </div>
-          <span class="text-white font-bold text-xl tracking-widest">FLOW</span>
         </div>
         <p class="text-slate-400 text-sm leading-relaxed mb-6 font-light">
           Acelerando a inovação com soluções de Inteligência Artificial de ponta. Construímos o futuro hoje.
@@ -48,13 +47,17 @@
           </li>
           <li class="flex items-center gap-3">
             <svg class="w-5 h-5 text-[#3683A8]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-            +55 (11) 99999-9999
+            +55 31 991757825
+          </li>
+          <li class="flex items-center gap-3">
+            <svg class="w-5 h-5 text-[#3683A8]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" /></svg>
+            Belo Horizonte / Brasilia
           </li>
         </ul>
       </div>
     </div>
     <div class="mt-20 text-center border-t border-white/5 pt-8">
-      <p class="text-slate-600 text-xs uppercase tracking-widest">&copy; 2026 DMWFLOW. Todos os direitos reservados.</p>
+      <p class="text-slate-600 text-xs uppercase tracking-widest">&copy; 2026 DMW. Todos os direitos reservados.</p>
     </div>
   </footer>
 </template>
