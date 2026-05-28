@@ -3,9 +3,9 @@ import nodemailer from 'nodemailer'
 export default defineEventHandler(async (event) => {
   const body = await readBody(event)
   
-  const { nome, email, desafio } = body
+  const { nome, email, telefone, desafio } = body
 
-  if (!nome || !email || !desafio) {
+  if (!nome || !email || !telefone || !desafio) {
     throw createError({
       statusCode: 400,
       statusMessage: 'Por favor, preencha todos os campos.'
@@ -32,6 +32,7 @@ export default defineEventHandler(async (event) => {
         <h3>Novo formulário de contato</h3>
         <p><strong>Nome:</strong> ${nome}</p>
         <p><strong>E-mail:</strong> ${email}</p>
+        <p><strong>Telefone:</strong> ${telefone}</p>
         <p><strong>Desafio:</strong></p>
         <p>${desafio}</p>
       `

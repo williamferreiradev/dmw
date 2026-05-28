@@ -33,7 +33,7 @@
             </h1>
             
             <p class="text-lg md:text-2xl text-slate-400 font-light mb-12 max-w-3xl leading-relaxed" style="font-family: 'Inter', sans-serif;">
-              Transformamos empresas através de arquiteturas neurais, automação cognitiva e agentes de IA desenvolvidos sob medida para dominar o seu mercado.
+              Transformamos empresas através de arquiteturas criativas, automação cognitiva e agentes de IA desenvolvidos sob medida para avançar no seu mercado.
             </p>
             
             <div class="flex flex-col sm:flex-row items-center gap-6">
@@ -71,7 +71,7 @@
             
             <div>
               <h2 style="font-family: 'Plus Jakarta Sans', sans-serif;" class="text-3xl md:text-5xl font-extrabold text-white mb-6 tracking-tight">
-                Arquitetura de <span class="text-[#3683A8]">Soluções</span>.
+                Estratégias de negócios <span class="text-[#3683A8]">escaláveis</span>.
               </h2>
               <p class="text-slate-400 text-lg leading-relaxed mb-6 font-light">
                 A DMW não é uma agência convencional. Nós nascemos na intersecção entre a ciência de dados avançada e a estratégia de negócios agressiva. Nosso propósito é instalar um "cérebro digital" nas operações dos nossos clientes.
@@ -219,6 +219,10 @@
                 </div>
               </div>
               <div>
+                <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Telefone</label>
+                <input v-model="formDados.telefone" type="tel" required class="w-full bg-black/50 border border-white/10 text-white px-4 py-3 focus:outline-none focus:border-[#3683A8] transition-colors" placeholder="(00) 00000-0000" />
+              </div>
+              <div>
                 <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Seu Desafio</label>
                 <textarea v-model="formDados.desafio" required rows="4" class="w-full bg-black/50 border border-white/10 text-white px-4 py-3 focus:outline-none focus:border-[#3683A8] transition-colors resize-none" placeholder="Conte-nos onde você precisa de mais inteligência e eficiência..."></textarea>
               </div>
@@ -241,6 +245,7 @@ import { ref } from 'vue'
 const formDados = ref({
   nome: '',
   email: '',
+  telefone: '',
   desafio: ''
 })
 
@@ -260,7 +265,7 @@ const enviarContato = async () => {
     })
     
     enviadoComSucesso.value = true
-    formDados.value = { nome: '', email: '', desafio: '' }
+    formDados.value = { nome: '', email: '', telefone: '', desafio: '' }
   } catch (e: any) {
     erro.value = 'Ocorreu um erro ao enviar a mensagem. Tente novamente mais tarde ou configure as variáveis SMTP no .env.'
   } finally {
