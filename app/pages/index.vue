@@ -229,6 +229,13 @@
               <button type="submit" :disabled="enviando" class="w-full bg-white text-black font-bold px-8 py-4 hover:bg-slate-200 transition-all duration-300 uppercase tracking-widest text-sm disabled:opacity-50 disabled:cursor-not-allowed">
                 {{ enviando ? 'Enviando...' : 'Solicitar Reunião' }}
               </button>
+
+              <div class="pt-6 border-t border-white/10 text-center text-xs text-slate-400 font-light flex flex-wrap justify-center items-center gap-4">
+                <span>Ou nos envie um e-mail direto:</span>
+                <a href="mailto:contato@dmwflow.com.br" class="text-[#3683A8] hover:underline font-medium">contato@dmwflow.com.br</a>
+                <span class="text-white/20">•</span>
+                <a href="mailto:asrise@dmwflow.com.br" class="text-[#3683A8] hover:underline font-medium">asrise@dmwflow.com.br</a>
+              </div>
             </form>
           </div>
         </div>
